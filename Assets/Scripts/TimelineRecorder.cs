@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityStandardAssets._2D;
 using UnityEditorInternal;
+using UnityEngine.SceneManagement;
 
 //[RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
@@ -32,5 +33,6 @@ public class TimelineRecorder : MonoBehaviour
     void Die()
     {
         TimelineManager.Instance.RecordTimeline(_timeline);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

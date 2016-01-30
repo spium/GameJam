@@ -114,6 +114,9 @@ public class PlatformerCharacter2D : MonoBehaviour
                 //flying death
                 Debug.Log("flying death");
             }
+
+            //TODO remove this and call it on animation end
+            SendMessage("Die");
         }
     }
 

@@ -35,7 +35,6 @@ public class Platformer2DUserControl : MonoBehaviour
         // Read the inputs.
         bool crouch = Input.GetKey(KeyCode.LeftControl);
         float h = CrossPlatformInputManager.GetAxis("Horizontal");
-        Debug.Log("axis: " + h);
         // Pass all parameters to the character control script.
         m_Character.Move(h, crouch, m_Jump, m_Die);
         m_Jump = false;
