@@ -4,11 +4,13 @@ using System.Collections.Generic;
 
 public class TimelineManager : UnitySingleton<TimelineManager> {
 
-    private List<Timeline> _timelines = new List<Timeline>();
+    private Queue<Timeline> _timelines;
     private Vector3 _spawn;
 
     [Tooltip("Maximum duration of a recording in seconds")]
     public float maxRecordingDuration;
+    [Tooltip("Maximum number of simultaneous repetitions")]
+    public int maxRepetitions;
 
     public Transform spawnPoint;
     public GameObject repetitionPrefab;
@@ -18,6 +20,7 @@ public class TimelineManager : UnitySingleton<TimelineManager> {
     public override void Awake()
     {
         base.Awake();
+        _timelines = new Queue<Timeline>(maxRepetitions);
         _spawn = spawnPoint.position;
         MaxTimelineFrames = (int)(maxRecordingDuration / Time.fixedDeltaTime);
     }
@@ -35,10 +38,16 @@ public class TimelineManager : UnitySingleton<TimelineManager> {
 
     public void RecordTimeline(Timeline timeline)
     {
-        _timelines.Add(timeline);
+        if (_timelines.Count == maxRepetitions)
+            _timelines.Dequeue();
+
+        _timelines.Enqueue(timeline);
     }
 
-
+    public void ResetTimelines()
+    {
+        _timelines.Clear();
+    }
 
 
 }
