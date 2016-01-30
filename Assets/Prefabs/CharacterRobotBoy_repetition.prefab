@@ -29,8 +29,8 @@ GameObject:
   - 114: {fileID: 11471588}
   - 68: {fileID: 6845606}
   - 251: {fileID: 25199994}
-  - 58: {fileID: 5842264}
-  - 61: {fileID: 6151092}
+  - 61: {fileID: 6176036}
+  - 58: {fileID: 5890812}
   m_Layer: 8
   m_Name: CharacterRobotBoy_repetition
   m_TagString: Repetition
@@ -108,7 +108,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &5842264
+--- !u!58 &5890812
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -119,10 +119,10 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -0.45}
+  m_Offset: {x: 0.21, y: -0.35}
   serializedVersion: 2
-  m_Radius: 0.16
---- !u!61 &6151092
+  m_Radius: 0.27
+--- !u!61 &6176036
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -133,9 +133,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.21, y: 0.39}
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.68}
+  m_Size: {x: 0.49, y: 1.35}
 --- !u!68 &6845606
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -147,10 +147,10 @@ EdgeCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 1
-  m_Offset: {x: 0, y: 0.48}
+  m_Offset: {x: 0.18, y: 1.11}
   m_Points:
-  - {x: -0.20407051, y: 0}
-  - {x: 0.22886196, y: 0}
+  - {x: -0.29932898, y: 0}
+  - {x: 0.33277994, y: 0}
 --- !u!95 &9590088
 Animator:
   serializedVersion: 3
@@ -219,7 +219,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967039
+    m_Bits: 512
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
   m_SurfaceArc: 180
