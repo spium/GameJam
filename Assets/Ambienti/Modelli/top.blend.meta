@@ -1,0 +1,175 @@
+fileFormatVersion: 2
+guid: 7e2ebb7522ace0d4abb47529cf952c59
+timeCreated: 1454174946
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Base1
+    100004: Base2
+    100006: Base3
+    100008: Base4
+    100010: CancelloAuto
+    100012: CancelloSacrificio
+    100014: Cube
+    100016: Fuochi
+    100018: Fuoco
+    100020: Fuoco_001
+    100022: Fuoco_002
+    100024: Fuoco_003
+    100026: LIivello
+    100028: PareteLeft
+    100030: PareteRight
+    100032: rampa1
+    100034: Tetto
+    100036: Stair1LongWide
+    100038: Stair1LongWideSide1
+    100040: Stair1LongWideSide2
+    400000: //RootNode
+    400002: Base1
+    400004: Base2
+    400006: Base3
+    400008: Base4
+    400010: CancelloAuto
+    400012: CancelloSacrificio
+    400014: Cube
+    400016: Fuochi
+    400018: Fuoco
+    400020: Fuoco_001
+    400022: Fuoco_002
+    400024: Fuoco_003
+    400026: LIivello
+    400028: PareteLeft
+    400030: PareteRight
+    400032: rampa1
+    400034: Tetto
+    400036: Stair1LongWide
+    400038: Stair1LongWideSide1
+    400040: Stair1LongWideSide2
+    2300000: //RootNode
+    2300002: Base1
+    2300004: Base2
+    2300006: Base3
+    2300008: Base4
+    2300010: CancelloAuto
+    2300012: CancelloSacrificio
+    2300014: Cube
+    2300016: Fuochi
+    2300018: Fuoco
+    2300020: Fuoco_001
+    2300022: Fuoco_002
+    2300024: Fuoco_003
+    2300026: PareteLeft
+    2300028: PareteRight
+    2300030: rampa1
+    2300032: Tetto
+    2300034: Stair1LongWide
+    2300036: Stair1LongWideSide1
+    2300038: Stair1LongWideSide2
+    3300000: //RootNode
+    3300002: Base1
+    3300004: Base2
+    3300006: Base3
+    3300008: Base4
+    3300010: CancelloAuto
+    3300012: CancelloSacrificio
+    3300014: Cube
+    3300016: Fuochi
+    3300018: Fuoco
+    3300020: Fuoco_001
+    3300022: Fuoco_002
+    3300024: Fuoco_003
+    3300026: PareteLeft
+    3300028: PareteRight
+    3300030: rampa1
+    3300032: Tetto
+    3300034: Stair1LongWide
+    3300036: Stair1LongWideSide1
+    3300038: Stair1LongWideSide2
+    4300000: Plane
+    4300002: CancelloAuto
+    4300004: CancelloSacrificio
+    4300006: Fuochi
+    4300008: Fuoco
+    4300010: Fuoco_001
+    4300012: Fuoco_002
+    4300014: Fuoco_003
+    4300016: Cube
+    4300018: Tetto
+    4300020: PareteRight
+    4300022: Base4
+    4300024: PareteLeft
+    4300026: rampa1
+    4300028: Base3
+    4300030: Base2
+    4300032: Base1
+    4300034: Stair1LongWide
+    4300036: Stair1LongWideSide1
+    4300038: Stair1LongWideSide2
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
