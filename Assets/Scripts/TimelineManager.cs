@@ -24,10 +24,13 @@ public class TimelineManager : UnitySingleton<TimelineManager> {
         _timelines = new Queue<Timeline>(maxRepetitions);
         _spawn = spawnPoint.position;
         MaxTimelineFrames = (int)(maxRecordingDuration / Time.fixedDeltaTime);
+        _currentLevel = Application.loadedLevel;
     }
 
     void OnLevelWasLoaded(int level)
     {
+        Debug.Log("level: " + level + ", current: " + _currentLevel);
+
         if (level == _currentLevel)
         {
             foreach (var tl in _timelines)
