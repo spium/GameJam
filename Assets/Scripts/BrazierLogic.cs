@@ -4,7 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(Collider2D))]
 public class BrazierLogic : MonoBehaviour
 {
-    [Tooltip("How many seconds before the brazier burns off")]
+    [Tooltip("How many seconds before the brazier burns off (0 = infinite)")]
     public float burnTime;
 
     private float _lightingTime;
@@ -25,9 +25,13 @@ public class BrazierLogic : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
         _lightingTime = Time.fixedTime;
-        _isLit = true;
         _sprite.color = Color.red;
-        GameManager.Instance.BrazierChanged(true);
+
+        if (!_isLit)
+        {
+            GameManager.Instance.BrazierChanged(true);
+            _isLit = true;
+        }
     }
 
     void FixedUpdate()
@@ -39,7 +43,7 @@ public class BrazierLogic : MonoBehaviour
             {
                 _sprite.color = Color.Lerp(Color.red, Color.green, duration / burnTime);
             }
-            else
+            else if(burnTime > 0f)
             {
                 _isLit = false;
                 _sprite.color = Color.green;
