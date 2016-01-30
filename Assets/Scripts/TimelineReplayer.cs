@@ -24,7 +24,7 @@ public class TimelineReplayer : MonoBehaviour {
         _anim = GetComponent<Animator>();
         _colliders = GetComponents<Collider2D>();
         _sprite = GetComponent<SpriteRenderer>();
-        _startColor = _sprite.color;
+        _startColor = _sprite.material.GetColor("_Color");
         _endColor = new Color(_startColor.r, _startColor.g, _startColor.b, 0f);
     }
 
@@ -59,7 +59,7 @@ public class TimelineReplayer : MonoBehaviour {
         }
 
         //lerp sprite alpha
-        _sprite.color = Color.Lerp(_startColor, _endColor, _currentFrame / _recordingFrames);
+        _sprite.material.SetColor("_Color", Color.Lerp(_startColor, _endColor, _currentFrame / _recordingFrames));
         ++_currentFrame;
     }
 }
