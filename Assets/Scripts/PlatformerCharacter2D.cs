@@ -105,14 +105,13 @@ public class PlatformerCharacter2D : MonoBehaviour
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
             }
 
-            if (die)
+            if (die && !m_Anim.GetBool("Dead"))
             {
                 Debug.Log("die");
                 m_Anim.SetBool("Dead", true);
                 m_Dead = true;
             }
         }
-        Debug.Log("Dead: " + m_Anim.GetBool("Dead") + ", ground: " + m_Anim.GetBool("Ground"));
     }
 
 

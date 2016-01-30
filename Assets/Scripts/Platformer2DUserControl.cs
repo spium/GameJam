@@ -38,6 +38,5 @@ public class Platformer2DUserControl : MonoBehaviour
         // Pass all parameters to the character control script.
         m_Character.Move(h, crouch, m_Jump, m_Die);
         m_Jump = false;
-        m_Die = false;
     }
 }
