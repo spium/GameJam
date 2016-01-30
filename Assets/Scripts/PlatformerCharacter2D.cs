@@ -23,6 +23,7 @@ public class PlatformerCharacter2D : MonoBehaviour
     private Animator m_Anim;            // Reference to the player's animator component.
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+    private bool m_Dead = false;
 
     private void Awake()
     {
@@ -55,69 +56,63 @@ public class PlatformerCharacter2D : MonoBehaviour
 
     public void Move(float move, bool crouch, bool jump, bool die)
     {
-        // If crouching, check to see if the character can stand up
-        if (!crouch && m_Anim.GetBool("Crouch"))
+        if (!m_Dead)
         {
-            // If the character has a ceiling preventing them from standing up, keep them crouching
-            if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
+            // If crouching, check to see if the character can stand up
+            if (!crouch && m_Anim.GetBool("Crouch"))
             {
-                crouch = true;
+                // If the character has a ceiling preventing them from standing up, keep them crouching
+                if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
+                {
+                    crouch = true;
+                }
+            }
+
+            // Set whether or not the character is crouching in the animator
+            m_Anim.SetBool("Crouch", crouch);
+
+            //only control the player if grounded or airControl is turned on
+            if (m_Grounded || m_AirControl)
+            {
+                // Reduce the speed if crouching by the crouchSpeed multiplier
+                move = (crouch ? move * m_CrouchSpeed : move);
+
+                // The Speed animator parameter is set to the absolute value of the horizontal input.
+                m_Anim.SetFloat("Speed", Mathf.Abs(m_Rigidbody2D.velocity.x));
+
+                // Move the character
+                m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
+
+                // If the input is moving the player right and the player is facing left...
+                if (move > 0 && !m_FacingRight)
+                {
+                    // ... flip the player.
+                    Flip();
+                }
+                // Otherwise if the input is moving the player left and the player is facing right...
+                else if (move < 0 && m_FacingRight)
+                {
+                    // ... flip the player.
+                    Flip();
+                }
+            }
+            // If the player should jump...
+            if (m_Grounded && jump && m_Anim.GetBool("Ground"))
+            {
+                // Add a vertical force to the player.
+                m_Grounded = false;
+                m_Anim.SetBool("Ground", false);
+                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            }
+
+            if (die)
+            {
+                Debug.Log("die");
+                m_Anim.SetBool("Dead", true);
+                m_Dead = true;
             }
         }
-
-        // Set whether or not the character is crouching in the animator
-        m_Anim.SetBool("Crouch", crouch);
-
-        //only control the player if grounded or airControl is turned on
-        if (m_Grounded || m_AirControl)
-        {
-            // Reduce the speed if crouching by the crouchSpeed multiplier
-            move = (crouch ? move * m_CrouchSpeed : move);
-
-            // The Speed animator parameter is set to the absolute value of the horizontal input.
-            m_Anim.SetFloat("Speed", Mathf.Abs(m_Rigidbody2D.velocity.x));
-
-            // Move the character
-            m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
-
-            // If the input is moving the player right and the player is facing left...
-            if (move > 0 && !m_FacingRight)
-            {
-                // ... flip the player.
-                Flip();
-            }
-            // Otherwise if the input is moving the player left and the player is facing right...
-            else if (move < 0 && m_FacingRight)
-            {
-                // ... flip the player.
-                Flip();
-            }
-        }
-        // If the player should jump...
-        if (m_Grounded && jump && m_Anim.GetBool("Ground"))
-        {
-            // Add a vertical force to the player.
-            m_Grounded = false;
-            m_Anim.SetBool("Ground", false);
-            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-        }
-
-        if (die)
-        {
-            if (m_Grounded)
-            {
-                //ground death
-                Debug.Log("ground death");
-            }
-            else
-            {
-                //flying death
-                Debug.Log("flying death");
-            }
-
-            //TODO remove this and call it on animation end
-            SendMessage("Die");
-        }
+        Debug.Log("Dead: " + m_Anim.GetBool("Dead") + ", ground: " + m_Anim.GetBool("Ground"));
     }
 
 

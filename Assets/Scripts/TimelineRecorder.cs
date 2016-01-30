@@ -27,7 +27,7 @@ public class TimelineRecorder : MonoBehaviour
     void FixedUpdate()
     {
         if (_timeline.samples.Count < TimelineManager.Instance.MaxTimelineFrames)
-            _timeline.samples.Add(new Sample(transform.position, transform.localScale.x, _anim.GetFloat("Speed"), _anim.GetFloat("vSpeed"), _anim.GetBool("Crouch"), _anim.GetBool("Ground")));
+            _timeline.samples.Add(new Sample(transform.position, transform.localScale.x, _anim.GetFloat("Speed"), _anim.GetFloat("vSpeed"), _anim.GetBool("Crouch"), _anim.GetBool("Ground"), _anim.GetBool("Head"), _anim.GetBool("Dead")));
     }
 
     void Die()

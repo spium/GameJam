@@ -44,6 +44,8 @@ public class TimelineReplayer : MonoBehaviour {
             _anim.SetFloat("vSpeed", sample.vspeed);
             _anim.SetBool("Crouch", sample.crouch);
             _anim.SetBool("Ground", sample.ground);
+            _anim.SetBool("Head", sample.head);
+            _anim.SetBool("Dead", sample.dead);
         }
         else if (_currentFrame >= _recordingFrames)
         {
