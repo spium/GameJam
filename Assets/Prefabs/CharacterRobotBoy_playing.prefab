@@ -41,8 +41,8 @@ GameObject:
   - 212: {fileID: 21233476}
   - 95: {fileID: 9577460}
   - 50: {fileID: 5027312}
-  - 114: {fileID: 11486284}
-  - 114: {fileID: 11423140}
+  - 114: {fileID: 11487654}
+  - 114: {fileID: 11414566}
   - 61: {fileID: 6198108}
   - 114: {fileID: 11444158}
   - 58: {fileID: 5840648}
@@ -153,7 +153,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11423140
+--- !u!114 &11414566
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 195612}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3d7b34a3bb2d4e4b926e7e729d3d410, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b70ff946710e90419aff14828b19e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11444158
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec2bfef469a51354f9ca72326d4777b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11486284
+--- !u!114 &11487654
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -183,12 +183,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 195612}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d08f91df3bd212f429df17f53ce2f364, type: 3}
+  m_Script: {fileID: 11500000, guid: db6357687fbd30a4a8ee61432bb95381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MaxSpeed: 10
   m_JumpForce: 600
-  m_CrouchSpeed: 0.25
+  m_CrouchSpeed: 0.36
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
