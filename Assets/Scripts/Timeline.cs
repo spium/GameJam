@@ -4,11 +4,9 @@ using UnityEngine;
 public class Timeline
 {
     public List<Sample> samples;
-    public Vector3 initialPosition;
 
-    public Timeline(Vector3 initialPosition)
+    public Timeline(int maxLength)
     {
-        this.initialPosition = initialPosition;
-        samples = new List<Sample>();
+        samples = new List<Sample>(maxLength);
     }
 }

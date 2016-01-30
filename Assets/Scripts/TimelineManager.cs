@@ -7,13 +7,19 @@ public class TimelineManager : UnitySingleton<TimelineManager> {
     private List<Timeline> _timelines = new List<Timeline>();
     private Vector3 _spawn;
 
+    [Tooltip("Maximum duration of a recording in seconds")]
+    public float maxRecordingDuration;
+
     public Transform spawnPoint;
     public GameObject repetitionPrefab;
+
+    public int MaxTimelineFrames { get; private set; }
 
     public override void Awake()
     {
         base.Awake();
         _spawn = spawnPoint.position;
+        MaxTimelineFrames = (int)(maxRecordingDuration / Time.fixedDeltaTime);
     }
 
     void OnLevelWasLoaded(int level)

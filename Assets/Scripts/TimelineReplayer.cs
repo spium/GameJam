@@ -4,6 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class TimelineReplayer : MonoBehaviour {
 
     public Timeline timeline;
@@ -12,12 +13,24 @@ public class TimelineReplayer : MonoBehaviour {
     private Rigidbody2D _rb;
     private Animator _anim;
     private Collider2D[] _colliders;
+    private SpriteRenderer _sprite;
+
+    private Color _startColor, _endColor;
+    private float _recordingFrames;
 
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         _colliders = GetComponents<Collider2D>();
+        _sprite = GetComponent<SpriteRenderer>();
+        _startColor = _sprite.color;
+        _endColor = new Color(_startColor.r, _startColor.g, _startColor.b, 0f);
+    }
+
+    void Start()
+    {
+        _recordingFrames = TimelineManager.Instance.MaxTimelineFrames;
     }
 
     void FixedUpdate()
@@ -31,7 +44,10 @@ public class TimelineReplayer : MonoBehaviour {
             _anim.SetFloat("vSpeed", sample.vspeed);
             _anim.SetBool("Crouch", sample.crouch);
             _anim.SetBool("Ground", sample.ground);
-            ++_currentFrame;
+        }
+        else if (_currentFrame >= _recordingFrames)
+        {
+            Destroy(gameObject);
         }
         else
         {
@@ -41,16 +57,9 @@ public class TimelineReplayer : MonoBehaviour {
             _anim.SetBool("Crouch", false);
             _anim.SetBool("Ground", true);
         }
-    }
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.tag == "Player")
-        {
-            foreach (var col in _colliders)
-            {
-                col.isTrigger = false;
-            }
-        }
+        //lerp sprite alpha
+        _sprite.color = Color.Lerp(_startColor, _endColor, _currentFrame / _recordingFrames);
+        ++_currentFrame;
     }
 }

@@ -16,12 +16,17 @@ public class TimelineRecorder : MonoBehaviour
     {
         //_rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
-        _timeline = new Timeline(transform.position);
+    }
+
+    void Start()
+    {
+        _timeline = new Timeline(TimelineManager.Instance.MaxTimelineFrames);
     }
 
     void FixedUpdate()
     {
-        _timeline.samples.Add(new Sample(transform.position, transform.localScale.x, _anim.GetFloat("Speed"), _anim.GetFloat("vSpeed"), _anim.GetBool("Crouch"), _anim.GetBool("Ground")));
+        if (_timeline.samples.Count < TimelineManager.Instance.MaxTimelineFrames)
+            _timeline.samples.Add(new Sample(transform.position, transform.localScale.x, _anim.GetFloat("Speed"), _anim.GetFloat("vSpeed"), _anim.GetBool("Crouch"), _anim.GetBool("Ground")));
     }
 
     void Die()

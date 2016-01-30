@@ -97,7 +97,7 @@ GameObject:
   - 4: {fileID: 100973930}
   - 114: {fileID: 100973929}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: TimelineManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6dd2dd988b99c418536c75cd97b1bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxRecordingDuration: 15
   spawnPoint: {fileID: 508331268}
   repetitionPrefab: {fileID: 132736, guid: 467a6d32b2ef35345a6fc36fa78b58c6, type: 2}
 --- !u!4 &100973930
