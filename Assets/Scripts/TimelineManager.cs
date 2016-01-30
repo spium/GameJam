@@ -6,6 +6,7 @@ public class TimelineManager : UnitySingleton<TimelineManager> {
 
     private Queue<Timeline> _timelines;
     private Vector3 _spawn;
+    private int _currentLevel = -1;
 
     [Tooltip("Maximum duration of a recording in seconds")]
     public float maxRecordingDuration;
@@ -27,12 +28,20 @@ public class TimelineManager : UnitySingleton<TimelineManager> {
 
     void OnLevelWasLoaded(int level)
     {
-        foreach (var tl in _timelines)
+        if (level == _currentLevel)
         {
-            GameObject rep = (GameObject) Instantiate(repetitionPrefab, _spawn, Quaternion.identity);
-            var replayer = rep.GetComponent<TimelineReplayer>();
-            replayer.timeline = tl;
-            replayer.enabled = true;
+            foreach (var tl in _timelines)
+            {
+                GameObject rep = (GameObject)Instantiate(repetitionPrefab, _spawn, Quaternion.identity);
+                var replayer = rep.GetComponent<TimelineReplayer>();
+                replayer.timeline = tl;
+                replayer.enabled = true;
+            }
+        }
+        else
+        {
+            ResetTimelines();
+            _currentLevel = level;
         }
     }
 
