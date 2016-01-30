@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: desaturated
-  m_Shader: {fileID: 4800000, guid: 1ba45c84bd1ad964dbbc006cadc9cb8a, type: 3}
+  m_Shader: {fileID: 4800000, guid: 04a238811a927b7458a94324bc5ff867, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: 3000
@@ -175,3 +175,7 @@ Material:
         first:
           name: _HSVAAdjust
         second: {r: 0, g: 0, b: 0, a: 0}
+      data:
+        first:
+          name: _Ambient
+        second: {r: 0, g: 0, b: 0, a: 1}
