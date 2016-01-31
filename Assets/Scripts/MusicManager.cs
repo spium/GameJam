@@ -46,7 +46,7 @@ public class MusicManager : UnitySingleton<MusicManager>
 
     IEnumerator FadeOut(int i)
     {
-        while (audio[i].volume > 0.1)
+        while (audio[i].volume > 0.1f)
         {
             audio[i].volume = Mathf.Lerp(audio[i].volume, 0.0f, FadeRate * Time.deltaTime);
             yield return null;
@@ -60,7 +60,7 @@ public class MusicManager : UnitySingleton<MusicManager>
     {
         while (audio[i].volume < 0.9)
         {
-            audio[i].volume = Mathf.Lerp(audio[i].volume, 0.0f, FadeRate * Time.deltaTime);
+            audio[i].volume = Mathf.Lerp(audio[i].volume, 1.0f, FadeRate * Time.deltaTime);
             yield return null;
         }
 
