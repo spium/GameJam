@@ -54,6 +54,7 @@ public class PlatformerCharacter2D : MonoBehaviour
             m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
     }
 
+    public bool IsMoving { get; private set; }
 
     public void Move(float move, bool crouch, bool jump, bool die)
     {
@@ -77,6 +78,8 @@ public class PlatformerCharacter2D : MonoBehaviour
             {
                 // Reduce the speed if crouching by the crouchSpeed multiplier
                 move = (crouch ? move * m_CrouchSpeed : move);
+
+                IsMoving = !Mathf.Approximately(move, 0f);
 
                 // The Speed animator parameter is set to the absolute value of the horizontal input.
                 m_Anim.SetFloat("Speed", Mathf.Abs(m_Rigidbody2D.velocity.x));
