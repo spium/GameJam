@@ -29,11 +29,11 @@ public class BrazierLogic : MonoBehaviour
     {
         _lightingTime = Time.fixedTime;
         //_sprite.color = Color.red;
-        var theFire = (GameObject) Instantiate(fire, firePosition.position, firePosition.rotation);
-        theFire.transform.parent = transform.parent;
-
+        
         if (!_isLit)
         {
+            var theFire = (GameObject)Instantiate(fire, firePosition.position, firePosition.rotation);
+            theFire.transform.parent = transform.parent;
             GameManager.Instance.BrazierChanged(true);
             _isLit = true;
         }
