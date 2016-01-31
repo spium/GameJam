@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21280448}
   - 61: {fileID: 6151744}
   - 114: {fileID: 11406966}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Brazier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1df5c654def134c90f222160025d00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  burnTime: 10
+  burnTime: 0
 --- !u!212 &21280448
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -92,7 +92,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: burnTime
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 167732}
