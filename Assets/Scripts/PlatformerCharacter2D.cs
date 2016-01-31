@@ -107,7 +107,12 @@ public class PlatformerCharacter2D : MonoBehaviour
 
             if (die && !m_Anim.GetBool("Dead"))
             {
-                Debug.Log("die");
+                if (!m_Grounded)
+                {
+                    m_Rigidbody2D.isKinematic = true;
+                    m_Rigidbody2D.velocity.Set(0f, 0f);
+                }
+
                 m_Anim.SetBool("Dead", true);
                 m_Dead = true;
             }
