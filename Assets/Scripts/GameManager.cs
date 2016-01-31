@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameManager : UnitySingleton<GameManager>
 {
@@ -28,7 +29,12 @@ public class GameManager : UnitySingleton<GameManager>
 
     void End()
     {
-        Debug.Log("you win");
+        int curr = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log("curr: " + curr + ", scenes: " + SceneManager.sceneCountInBuildSettings);
+        if (curr < SceneManager.sceneCountInBuildSettings - 1)
+            SceneManager.LoadScene(curr + 1);
+        else
+            Application.Quit();
     }
 
     void OnLevelWasLoaded(int level)

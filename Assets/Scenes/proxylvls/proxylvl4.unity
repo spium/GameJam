@@ -857,10 +857,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11406966, guid: 4ceef5f39fe6d704a8837dca7ae6f109, type: 2}
-      propertyPath: burnTime
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ceef5f39fe6d704a8837dca7ae6f109, type: 2}
   m_IsPrefabParent: 0
@@ -945,10 +941,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 11406966, guid: 4ceef5f39fe6d704a8837dca7ae6f109, type: 2}
-      propertyPath: burnTime
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 167732, guid: 4ceef5f39fe6d704a8837dca7ae6f109, type: 2}
       propertyPath: m_Name
       value: Brazier (1)
@@ -994,10 +986,6 @@ Prefab:
     - target: {fileID: 433770, guid: 4ceef5f39fe6d704a8837dca7ae6f109, type: 2}
       propertyPath: m_RootOrder
       value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 11406966, guid: 4ceef5f39fe6d704a8837dca7ae6f109, type: 2}
-      propertyPath: burnTime
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 167732, guid: 4ceef5f39fe6d704a8837dca7ae6f109, type: 2}
       propertyPath: m_Name
