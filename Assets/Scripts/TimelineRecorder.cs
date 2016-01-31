@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityStandardAssets._2D;
-using UnityEditorInternal;
 using UnityEngine.SceneManagement;
 
 //[RequireComponent(typeof(Rigidbody2D))]
