@@ -11,6 +11,7 @@ public class PlatformMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        transform.tag = "MovingPlatform";
         startPosition = transform.position.x-currPosition;
 	}
 	
