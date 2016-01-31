@@ -7,15 +7,18 @@ public class BrazierLogic : MonoBehaviour
     [Tooltip("How many seconds before the brazier burns off (0 = infinite)")]
     public float burnTime;
 
+    public GameObject fire;
+    public Transform firePosition;
+
     private float _lightingTime;
     private bool _isLit;
 
-    private SpriteRenderer _sprite;
+    //private SpriteRenderer _sprite;
 
-    void Awake()
-    {
-        _sprite = GetComponent<SpriteRenderer>();
-    }
+    //void Awake()
+    //{
+    //    _sprite = GetComponent<SpriteRenderer>();
+    //}
 
     void Start()
     {
@@ -25,7 +28,9 @@ public class BrazierLogic : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
         _lightingTime = Time.fixedTime;
-        _sprite.color = Color.red;
+        //_sprite.color = Color.red;
+        var theFire = (GameObject) Instantiate(fire, firePosition.position, firePosition.rotation);
+        theFire.transform.parent = transform.parent;
 
         if (!_isLit)
         {
@@ -41,12 +46,12 @@ public class BrazierLogic : MonoBehaviour
         {
             if (duration < burnTime)
             {
-                _sprite.color = Color.Lerp(Color.red, Color.green, duration / burnTime);
+                //_sprite.color = Color.Lerp(Color.red, Color.green, duration / burnTime);
             }
             else if(burnTime > 0f)
             {
                 _isLit = false;
-                _sprite.color = Color.green;
+                //_sprite.color = Color.green;
                 GameManager.Instance.BrazierChanged(false);
             }
         }
