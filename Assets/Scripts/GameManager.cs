@@ -13,6 +13,9 @@ public class GameManager : UnitySingleton<GameManager>
         _litBraziers = 0;
     }
 
+    public int Braziers { get { return _totalBraziers; } }
+    public int LitBraziers { get { return _litBraziers; } }
+
     public void RegisterBrazier()
     {
         ++_totalBraziers;
