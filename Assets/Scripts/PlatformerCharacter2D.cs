@@ -23,7 +23,7 @@ public class PlatformerCharacter2D : MonoBehaviour
     private Animator m_Anim;            // Reference to the player's animator component.
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
-    private bool m_Dead = false;
+    private bool m_Dead = false, m_OnHead = false;
 
     private void Awake()
     {
@@ -50,7 +50,8 @@ public class PlatformerCharacter2D : MonoBehaviour
         m_Anim.SetBool("Ground", m_Grounded);
 
         // Set the vertical animation
-        m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
+        if(!m_OnHead)
+            m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
     }
 
 
@@ -125,5 +126,31 @@ public class PlatformerCharacter2D : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Repetition")
+        {
+            m_Anim.SetBool("Head", true);
+            m_OnHead = true;
+        }
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Repetition")
+        {
+            m_Anim.SetFloat("vSpeed", 1f);
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Repetition")
+        {
+            m_Anim.SetBool("Head", false);
+            m_OnHead = false;
+        }
     }
 }

@@ -33,7 +33,6 @@ public class GameManager : UnitySingleton<GameManager>
     void End()
     {
         int curr = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log("curr: " + curr + ", scenes: " + SceneManager.sceneCountInBuildSettings);
         if (curr < SceneManager.sceneCountInBuildSettings - 1)
             SceneManager.LoadScene(curr + 1);
         else
